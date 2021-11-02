@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import { Button } from "react-native";
 import styled from "styled-components/native";
-const StyledButton = styled(Button).attrs({
-  full: true,
-  rounded: false,
-})`
+const StyledButton = styled(Button)`
   background: ${(props) => props.bg};
   color: ${(props) => props.textColor};
   height: ${(props) => props.height};

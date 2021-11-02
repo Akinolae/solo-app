@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ImageBackground } from "react-native";
 import styled from "styled-components";
 import { CustomButton } from "../component/";
 
@@ -15,6 +15,15 @@ class HomeScreen extends React.Component {
   render() {
     return (
       <Wrapper>
+        <ImageBackground
+          source={require("../../assets/bank.jpg")}
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+          resizeMode="cover"
+          justifyContent="center"
+        ></ImageBackground>
         <CustomText>This is the home page</CustomText>
         <CustomButton
           title="click me"
