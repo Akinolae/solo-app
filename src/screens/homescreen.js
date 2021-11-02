@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import styled from "styled-components";
+import { CustomButton } from "../component/";
 
 const Wrapper = styled(View)``;
 
@@ -15,6 +16,13 @@ class HomeScreen extends React.Component {
     return (
       <Wrapper>
         <CustomText>This is the home page</CustomText>
+        <CustomButton
+          title="click me"
+          textColor="#FFFFFF"
+          bg="#FF0000"
+          height="50px"
+          width="120px"
+        />
       </Wrapper>
     );
   }
