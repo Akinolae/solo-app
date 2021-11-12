@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "solo-app",
+    "name": "Afro app",
     "slug": "solo-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,14 +8,12 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#000000"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

@@ -7,7 +7,6 @@ import styled from "styled-components/native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>welcome to solo </Text>
       <HomeScreen />
       <StatusBar style="auto" />
     </View>
@@ -16,7 +15,6 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "black",
+    backgroundColor: "white",
   },
 });
