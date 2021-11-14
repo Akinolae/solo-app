@@ -1,14 +1,17 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
-import HomeScreen from "./src/screens/homescreen";
 import SignInScreen from "./src/screens/signInScreen";
+import DashBoardScreen from "./src/screens/dashboadScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
 
 const Stack = createNativeStackNavigator();
 const screens = [
-  { name: "Home", component: HomeScreen },
   { name: "signin", component: SignInScreen },
+  {
+    name: "dashboard",
+    component: DashBoardScreen,
+  },
 ];
 
 export default function App() {

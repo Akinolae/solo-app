@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Text } from "react-native";
+import { Button } from "react-native-elements";
 import styled from "styled-components/native";
 const StyledButton = styled(Button)`
   background: ${(props) => props.bg};

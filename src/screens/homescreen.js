@@ -1,7 +1,7 @@
 import React from "react";
 import { View, SafeAreaView, StatusBar } from "react-native";
+import { Button } from "react-native-elements";
 import Modal from "react-native-modal";
-import Icons from "react-native-vector-icons";
 import styled from "styled-components/native";
 import { CustomButton } from "../component/";
 
@@ -39,7 +39,9 @@ class HomeScreen extends React.Component {
   };
   render() {
     return (
-      <SafeAreaView style={{ marginTop: StatusBar.currentHeight }}>
+      <SafeAreaView
+        style={{ marginTop: StatusBar.currentHeight, backgroundColor: "#0000" }}
+      >
         <Wrapper>
           <Modal
             isVisible={this.state.isVisible}
@@ -66,7 +68,9 @@ class HomeScreen extends React.Component {
                 height: "50%",
                 backgroundColor: "#ffff",
                 marginTop: "auto",
-                borderRadius: 20,
+                // borderRadius: 20,
+                borderTopEndRadius: 20,
+                borderTopLeftRadius: 20,
               }}
             >
               <View
@@ -161,6 +165,9 @@ class HomeScreen extends React.Component {
             <CustomButton
               title="akinola"
               textColor="#FFFFFF"
+              buttonStyle={{
+                backgroundColor: "red",
+              }}
               bg="#FF0000"
               height="50px"
               width="20px"
@@ -176,5 +183,9 @@ class HomeScreen extends React.Component {
     );
   }
 }
+
+HomeScreen.defaultProps = {
+  isVisible: false,
+};
 
 export default HomeScreen;
