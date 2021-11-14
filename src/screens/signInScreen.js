@@ -52,9 +52,12 @@ class SignInScreen extends React.Component {
     });
     try {
       await login(values);
-      this.setState({
-        formLoading: false,
-      });
+      this.setState(
+        {
+          formLoading: false,
+        },
+        () => this.props.navigation.push("dashboard")
+      );
     } catch (error) {
       this.setState({
         loginError: error,
@@ -81,7 +84,7 @@ class SignInScreen extends React.Component {
                   </Text>
                 )}
                 <Input
-                  leftIcon={<Icon name="user" color="black" size={15} />}
+                  leftIcon={<Icon name="envelope" color="black" size={12} />}
                   onChangeText={handleChange("email")}
                   style={styles.input}
                   placeholder="Enter email"
@@ -131,7 +134,13 @@ class SignInScreen extends React.Component {
         </Formik>
         <View style={styles.buttonDiv}>
           <Text style={{ fontSize: 16, marginTop: 15 }}>
-            Don't have an account? sign up
+            Don't have an account?{" "}
+            <Text
+              onPress={() => this.props.navigation.push("register")}
+              style={{ color: "blue", fontSize: 16 }}
+            >
+              sign up
+            </Text>
           </Text>
         </View>
         <View style={{ display: "flex", flexDirection: "row" }}>

@@ -106,7 +106,6 @@ class HomeScreen extends React.Component {
               </View>
             </View>
           </Modal>
-          <Header />
           <View
             style={{
               display: "flex",
