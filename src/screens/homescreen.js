@@ -1,6 +1,6 @@
 import React from "react";
 import { View, SafeAreaView, StatusBar } from "react-native";
-import { Button } from "react-native-elements";
+import { Button, Header } from "react-native-elements";
 import Modal from "react-native-modal";
 import styled from "styled-components/native";
 import { CustomButton } from "../component/";
@@ -106,13 +106,7 @@ class HomeScreen extends React.Component {
               </View>
             </View>
           </Modal>
-          <View
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "92%",
-            }}
-          ></View>
+          <Header />
           <View
             style={{
               display: "flex",
