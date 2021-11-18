@@ -1,6 +1,7 @@
 import React from "react";
 import { View, SafeAreaView, StatusBar } from "react-native";
 import { Button, Header } from "react-native-elements";
+import { connect } from "react-redux";
 import Modal from "react-native-modal";
 import styled from "styled-components/native";
 import { CustomButton } from "../component/";
@@ -38,6 +39,7 @@ class HomeScreen extends React.Component {
     });
   };
   render() {
+    console.log(this.props);
     return (
       <SafeAreaView
         style={{ marginTop: StatusBar.currentHeight, backgroundColor: "#0000" }}
@@ -181,4 +183,7 @@ HomeScreen.defaultProps = {
   isVisible: false,
 };
 
-export default HomeScreen;
+const mapStateToProps = (state) => ({
+  payLoad: state.user.signIn.payLoad,
+});
+export default connect(mapStateToProps, {})(HomeScreen);

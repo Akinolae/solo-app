@@ -1,22 +1,20 @@
 import React from "react";
 import styled from "styled-components";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, KeyboardAvoidingView, Platform } from "react-native";
 import { Input, Button, SocialIcon } from "react-native-elements";
 import { Formik } from "formik";
 import { login } from "../services/auth";
+import { user_login } from "../services/appstore/actions/actions";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Wrapper = styled.View`
   height: 100%;
   background-color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex: 1;
 `;
 
 const Text = styled.Text`
-  color: black;
+  color: white;
   font-size: 28px;
 `;
 
@@ -25,8 +23,18 @@ const FormWrapper = styled.View`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin-top: 20px;
+  width: 95%;
+  height: 35%;
+  margin: 30px auto;
+`;
+
+const WelcomeWrapper = styled.View`
+  height: 25%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0d3153;
 `;
 
 class SignInScreen extends React.Component {
@@ -51,7 +59,7 @@ class SignInScreen extends React.Component {
       loginError: "",
     });
     try {
-      await login(values);
+      await login(values, user_login);
       this.setState(
         {
           formLoading: false,
@@ -66,11 +74,20 @@ class SignInScreen extends React.Component {
     }
   };
 
+  componentDidMount = () => {
+    this.setState({
+      loginError: "",
+    });
+  };
   render() {
     const { showPassword, formLoading, loginError } = this.state;
     return (
       <Wrapper>
-        <Text>Welcome</Text>
+        <WelcomeWrapper
+          style={{ borderBottomEndRadius: 40, borderBottomLeftRadius: 40 }}
+        >
+          <Text>Welcome</Text>
+        </WelcomeWrapper>
         <Formik
           initialValues={{ email: "", password: "" }}
           onSubmit={this.formSubmit}
@@ -78,11 +95,19 @@ class SignInScreen extends React.Component {
           {({ handleChange, handleSubmit, values }) => {
             return (
               <FormWrapper>
-                {!!loginError && (
-                  <Text style={{ color: "red", fontSize: 14 }}>
-                    {loginError}
-                  </Text>
-                )}
+                <View
+                  style={{
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    alignSelf: "flex-start",
+                  }}
+                >
+                  {!!loginError && (
+                    <Text style={{ color: "red", fontSize: 14 }}>
+                      {loginError}
+                    </Text>
+                  )}
+                </View>
                 <Input
                   leftIcon={<Icon name="envelope" color="black" size={12} />}
                   onChangeText={handleChange("email")}
@@ -123,7 +148,7 @@ class SignInScreen extends React.Component {
                       width: 250,
                       height: 50,
                       borderRadius: 50,
-                      backgroundColor: "green",
+                      backgroundColor: "#0d3153",
                       marginTop: 10,
                     }}
                   />
@@ -133,17 +158,23 @@ class SignInScreen extends React.Component {
           }}
         </Formik>
         <View style={styles.buttonDiv}>
-          <Text style={{ fontSize: 16, marginTop: 15 }}>
-            Don't have an account?{" "}
+          <Text style={{ fontSize: 18, color: "black" }}>
+            Don't have an account ?{" "}
             <Text
-              onPress={() => this.props.navigation.push("register")}
-              style={{ color: "blue", fontSize: 16 }}
+              onPress={() => this.props.navigation.navigate("register")}
+              style={{ color: "blue", fontSize: 18 }}
             >
-              sign up
+              create one
             </Text>
           </Text>
         </View>
-        <View style={{ display: "flex", flexDirection: "row" }}>
+        <View
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
           <SocialIcon type="google" />
           <SocialIcon type="twitter" />
           <SocialIcon type="instagram" />
